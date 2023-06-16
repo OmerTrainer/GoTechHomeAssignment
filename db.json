@@ -1,0 +1,51 @@
+{
+  "questions": [
+    {
+      "content": "What language is your favorite?",
+      "AviableAnswers": [
+        "Kotlin",
+        "Java",
+        "C++"
+      ],
+      "AnswersType": "multiChoice",
+      "IsRequired": true
+    },
+    {
+      "content": "What do you like about programming?",
+      "AnswersType": "text",
+      "IsRequired": false
+    },
+    {
+      "content": "How was the assignment?",
+      "AviableAnswers": [
+        "Easy",
+        "Normal",
+        "Hard"
+      ],
+      "AnswersType": "multiChoiceWithOther",
+      "IsRequired": true
+    }
+  ],
+  "answers": [
+    [
+      "C++",
+      "me",
+      "Normal"
+    ],
+    [
+      "C++",
+      "me",
+      "fsafas"
+    ],
+    [
+      "C++",
+      "me",
+      "Hard"
+    ],
+    [
+      "C++",
+      "me",
+      "Hard"
+    ]
+  ]
+}
