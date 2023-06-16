@@ -10,12 +10,14 @@ class QuestionnaireProvider with ChangeNotifier {
     answers[index] = newVal;
   }
 
-  void submitForm() {
+  void submitForm(BuildContext context, Function restartState) {
     textQuestionsValues.forEach((key, value) {
       updateAnswers(int.parse(key), value.text);
     });
     if (isAnswersValidated()) {
-      AnswersService.saveAllAnswers(answers);
+      AnswersService.saveAllAnswers(answers, restartState);
+    } else {
+      showAlertDialog(context);
     }
   }
 
@@ -27,5 +29,24 @@ class QuestionnaireProvider with ChangeNotifier {
       }
     }
     return true;
+  }
+
+  void showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: const Text('עליך לענות על כל שאלות החובה'),
+          actions: [
+            TextButton(
+              child: const Text('אישור'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
