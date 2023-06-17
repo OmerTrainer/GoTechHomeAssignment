@@ -93,12 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      questionProvider.submitForm(context, () {
-                        setState(() {
-                          questions = [];
-                          fetchQuestionsData();
-                        });
-                      });
+                      questionProvider.submitForm(context);
                     },
                     child: Container(
                       height: DeviceUtils.getScaledHeight(context, 0.036),
