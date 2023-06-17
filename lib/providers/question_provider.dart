@@ -10,12 +10,12 @@ class QuestionnaireProvider with ChangeNotifier {
     answers[index] = newVal;
   }
 
-  void submitForm(BuildContext context, Function restartState) {
+  void submitForm(BuildContext context) {
     textQuestionsValues.forEach((key, value) {
       updateAnswers(int.parse(key), value.text);
     });
     if (isAnswersValidated()) {
-      AnswersService.saveAllAnswers(answers, restartState);
+      AnswersService.saveAllAnswers(answers);
     } else {
       showAlertDialog(context);
     }
